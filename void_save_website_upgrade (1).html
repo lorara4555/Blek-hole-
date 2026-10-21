@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070710">
+<title>VOID SAVE — Misi Menabung</title>
+<style>
+:root{--bg:#070710;--panel:#10111d;--line:rgba(255,255,255,.12);--muted:#a4a7bd;--cyan:#71f7e4;--violet:#a78bfa;--pink:#ff76c8}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#25205a 0,transparent 42%),var(--bg);color:#f7f7ff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:radial-gradient(#fff 0.6px,transparent .7px);background-size:27px 27px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+.wrap{max-width:1120px;margin:auto;padding:24px 18px 60px;position:relative}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:2px}.logo{width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--violet));display:grid;place-items:center;color:#090914;font-size:21px;box-shadow:0 0 28px #71f7e433}.pill{font-size:12px;color:var(--cyan);border:1px solid #71f7e455;border-radius:99px;padding:8px 12px;background:#71f7e40d}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch}.intro,.blackhole,.panel{border:1px solid var(--line);border-radius:25px;background:linear-gradient(145deg,#151526ed,#0c0d17ed);box-shadow:0 18px 60px #0003}.intro{padding:clamp(22px,4vw,40px);display:flex;flex-direction:column;justify-content:center}.eyebrow{color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase}.intro h1{font-size:clamp(36px,5vw,60px);line-height:.99;letter-spacing:-2.7px;margin:15px 0}.intro h1 span{background:linear-gradient(90deg,var(--cyan),#a6b3ff,var(--pink));color:transparent;background-clip:text}.intro p{color:var(--muted);line-height:1.65;max-width:460px;margin:0 0 22px}.btn{border:0;border-radius:13px;padding:13px 17px;font-weight:800;cursor:pointer;transition:.2s;font-size:14px}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.primary{background:linear-gradient(100deg,var(--cyan),#b3a0ff);color:#0a0b15}.secondary{background:#ffffff0b;color:#fff;border:1px solid var(--line)}.actions{display:flex;gap:10px;flex-wrap:wrap}
+.blackhole{min-height:330px;display:grid;place-items:center;overflow:hidden;position:relative;background:radial-gradient(ellipse at center,#241b52 0,#101020 42%,#0a0a12 75%)}.blackhole:before,.blackhole:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;border:1px solid #8e7cff66;box-shadow:0 0 35px #795cff22,inset 0 0 35px #795cff22;transform:rotate(-25deg) scaleY(.35)}.blackhole:after{width:320px;height:320px;border-color:#71f7e455;transform:rotate(35deg) scaleY(.27)}.orbit{position:relative;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8b7cff 0,#4e3b9c 15%,#161327 42%,#030309 66%);box-shadow:0 0 35px #8c6aff66,0 0 100px #7a53ff33;z-index:1;animation:float 5s ease-in-out infinite}.orbit:before{content:"";position:absolute;inset:-23px;border:5px solid transparent;border-top-color:var(--cyan);border-bottom-color:var(--pink);border-radius:50%;transform:rotate(-28deg);filter:drop-shadow(0 0 8px #71f7e4aa)}.orbit:after{content:"";position:absolute;inset:34%;border-radius:50%;background:#020207;box-shadow:0 0 24px #000}.floatlabel{position:absolute;z-index:2;bottom:22px;left:22px;color:#c9c7ff;font-size:12px;letter-spacing:1px}.floatlabel b{color:#fff;display:block;font-size:17px;margin-top:4px}@keyframes float{50%{transform:translateY(-8px) rotate(4deg)}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.stat{padding:17px;border:1px solid var(--line);border-radius:18px;background:#11121e}.stat small{color:var(--muted);display:block;margin-bottom:8px}.stat strong{font-size:clamp(16px,2.4vw,23px)}.stat .glow{color:var(--cyan)}
+.main{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.panel{padding:22px}.panelhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:17px}.panel h2{font-size:18px;margin:0}.sub{font-size:12px;color:var(--muted);margin-top:5px}.target-preview{display:flex;gap:15px;align-items:center;margin-bottom:18px}.preview{width:88px;height:88px;border-radius:17px;border:1px solid #ffffff22;object-fit:cover;background:linear-gradient(135deg,#272044,#11111b);display:grid;place-items:center;font-size:28px;flex-shrink:0}.target-name{font-size:18px;font-weight:800}.target-caption{font-size:12px;color:var(--muted);margin-top:5px}.progressbar{height:10px;border-radius:99px;background:#ffffff12;overflow:hidden;margin:12px 0}.progressfill{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));border-radius:99px;transition:width .5s}.progressrow{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:#c5c6d7}.field input,.field select{width:100%;padding:12px 13px;border-radius:12px;border:1px solid var(--line);background:#090a13;color:white;outline:none;font:inherit}.field input:focus,.field select:focus{border-color:var(--cyan)}.hint{font-size:11px;color:var(--muted);line-height:1.5}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.goal{position:relative;border:1px solid var(--line);background:#ffffff06;border-radius:15px;padding:12px 8px;min-height:100px;text-align:center;cursor:pointer;color:white}.goal .emoji{font-size:25px;display:block;margin-bottom:8px}.goal span:last-child{font-size:11px;color:#c9cadd}.goal.selected{border-color:var(--cyan);background:#71f7e412;box-shadow:inset 0 0 0 1px #71f7e433}.goal.selected:after{content:"✓";position:absolute;right:7px;top:5px;color:var(--cyan);font-weight:900}.upload{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:10px;padding:12px;border:1px dashed #ffffff35;border-radius:12px;color:#d7d7e8;background:#ffffff05;cursor:pointer;font-size:12px}.upload input{display:none}.missions{display:grid;gap:10px}.mission{display:flex;gap:11px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:14px;background:#ffffff04}.mission-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#a78bfa17;font-size:18px;flex-shrink:0}.mission.quest{font-family:inherit;transition:.2s}.mission.quest.done{border-color:#71f7e477;background:#71f7e40d}.mission.quest.done .badge{color:#71f7e4}.mission.quest.done .badge:after{content:" ✓"}.mission b{font-size:13px;display:block}.mission small{color:var(--muted);font-size:11px}.badge{margin-left:auto;font-size:10px;color:var(--cyan);white-space:nowrap}.deposit{margin-top:18px;background:linear-gradient(145deg,#17172a,#0d0e19);border:1px solid #71f7e444;border-radius:20px;padding:20px}.deposit h3{margin:0 0 6px;font-size:18px}.deposit p{font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px}.numberbox{display:flex;gap:8px;align-items:center;background:#05060c;border:1px solid var(--line);border-radius:13px;padding:12px;margin:12px 0}.numberbox strong{font-size:18px;letter-spacing:1px;flex:1}.tiny{padding:9px 11px;font-size:12px}.deposit-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.footer{text-align:center;color:#74778d;font-size:11px;margin-top:25px;line-height:1.6}.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#e5fff9;color:#071310;padding:12px 17px;border-radius:12px;font-weight:800;font-size:13px;transition:.25s;z-index:10}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:760px){.hero,.main{grid-template-columns:1fr}.blackhole{min-height:260px;grid-row:1}.intro{grid-row:2}.stats{gap:8px}.stat{padding:13px}.top{margin-bottom:18px}.panel{padding:17px}}@media(max-width:390px){.target-switch{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.deposit-actions{grid-template-columns:1fr}}
+
+/* VOID SAVE upgrade: tambahan fitur tanpa mengganti layout inti */
+.feature-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.feature-tools .btn{font-size:12px;padding:10px 12px}
+.target-switch{display:grid;grid-template-columns:1fr auto;gap:8px;margin:0 0 14px}
+.target-switch select{min-width:0;padding:11px;border-radius:12px;border:1px solid var(--line);background:#090a13;color:white;font:inherit}
+.extra-panels{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.extra-panels .panel{min-width:0}
+.history-list,.badge-list{display:grid;gap:9px}
+.history-item,.achievement{display:flex;align-items:center;gap:10px;padding:11px;border:1px solid var(--line);border-radius:13px;background:#ffffff04}
+.history-icon,.achievement-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:#71f7e411;font-size:18px;flex-shrink:0}
+.history-copy,.achievement-copy{flex:1;min-width:0}
+.history-copy b,.achievement-copy b{display:block;font-size:12px;overflow-wrap:anywhere}
+.history-copy small,.achievement-copy small{display:block;color:var(--muted);font-size:10px;margin-top:4px}
+.history-amount{font-size:12px;font-weight:800;color:var(--cyan);white-space:nowrap}
+.achievement.locked{opacity:.48;filter:saturate(.5)}
+.achievement.unlocked{border-color:#71f7e455;background:#71f7e40b}
+.achievement-state{font-size:10px;color:var(--cyan);white-space:nowrap}
+.xp-mini{font-size:11px;color:var(--muted);margin-top:5px}
+.portal-energy{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(113,247,228,var(--portal-glow,.05)),transparent 52%);transition:opacity .3s}
+.orbit{filter:brightness(var(--portal-brightness,1));box-shadow:0 0 calc(35px * var(--portal-power,1)) #8c6aff66,0 0 calc(100px * var(--portal-power,1)) #7a53ff33;transition:filter .35s,box-shadow .35s}
+.sound-state{color:var(--muted);font-size:11px;align-self:center}
+.empty-state{color:var(--muted);font-size:12px;padding:12px;border:1px dashed var(--line);border-radius:12px;text-align:center}
+#soundBtn.active{border-color:#71f7e477;color:var(--cyan)}
+@media(max-width:760px){.extra-panels{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><div class="logo">◉</div><span>VOID<span style="color:var(--cyan)">SAVE</span></span></div><div class="pill">✦ LEVEL 01 · THE COLLECTOR</div></header>
+<section class="hero">
+ <div class="intro"><div class="eyebrow">YOUR MONEY, YOUR MISSION</div><h1>Ubah receh<br>jadi <span>sesuatu.</span></h1><p>Masukkan target impianmu, kumpulkan progres sedikit demi sedikit, dan jadikan menabung seperti naik level dalam game.</p><div class="actions"><button class="btn primary" onclick="document.getElementById('target').scrollIntoView({behavior:'smooth'})">＋ Buat target</button><button class="btn secondary" onclick="document.getElementById('missions').scrollIntoView({behavior:'smooth'})">Lihat misi ↘</button></div></div>
+ <div class="blackhole"><div class="portal-energy" id="portalEnergy"></div><div class="orbit" id="blackholeOrbit"></div><div class="floatlabel">PORTAL MENUJU IMPIAN<b id="portalLabel">Target belum dipilih</b><span id="portalLevel" style="display:block;font-size:10px;color:var(--cyan);margin-top:5px">ENERGI 0%</span></div></div>
+</section>
+<div class="stats"><div class="stat"><small>💧 Total terkumpul</small><strong class="glow" id="totalStat">Rp0</strong></div><div class="stat"><small>🎯 Target aktif</small><strong id="goalStat">Rp1.000.000</strong></div><div class="stat"><small>⚡ Level menabung</small><strong id="levelStat">Level 1</strong><div class="xp-mini" id="xpStat">0 XP · 🔥 0 hari</div></div></div>
+<section class="main">
+ <div class="panel" id="target">
+  <div class="panelhead"><div><h2>01 / Target impian</h2><div class="sub">Pilih target atau unggah gambar sendiri.</div></div><span class="eyebrow">GOAL</span></div>
+  <div class="target-preview"><img id="previewImg" class="preview" alt="Gambar target" src="" style="display:none"><div class="preview" id="previewEmoji">🎧</div><div><div class="target-name" id="previewName">Headphone impian</div><div class="target-caption">Satu langkah kecil setiap hari.</div></div></div>
+  <div class="target-switch"><select id="targetSelect" aria-label="Pilih target tersimpan"><option value="default">Headphone impian</option></select><button class="btn secondary tiny" id="newTargetBtn" type="button">＋ Target baru</button></div>
+   <div class="gallery" id="gallery">
+   <button class="goal selected" data-name="Headphone impian" data-emoji="🎧" data-amount="750000"><span class="emoji">🎧</span><span>Headphone</span></button>
+   <button class="goal" data-name="HP baru" data-emoji="📱" data-amount="2500000"><span class="emoji">📱</span><span>HP baru</span></button>
+   <button class="goal" data-name="Sepeda" data-emoji="🚲" data-amount="1800000"><span class="emoji">🚲</span><span>Sepeda</span></button>
+   <button class="goal" data-name="Sepatu impian" data-emoji="👟" data-amount="600000"><span class="emoji">👟</span><span>Sepatu</span></button>
+   <button class="goal" data-name="Liburan" data-emoji="🏝️" data-amount="1500000"><span class="emoji">🏝️</span><span>Liburan</span></button>
+   <button class="goal" data-name="Laptop" data-emoji="💻" data-amount="5000000"><span class="emoji">💻</span><span>Laptop</span></button>
+  </div>
+  <label class="upload">▧ Pilih gambar dari galeri perangkat<input id="imageUpload" type="file" accept="image/*"></label>
+  <div class="formgrid">
+   <div class="field full"><label for="goalName">Nama target</label><input id="goalName" value="Headphone impian" maxlength="60"></div>
+   <div class="field"><label for="goalAmount">Target (Rp)</label><input id="goalAmount" type="number" min="1" step="1000" value="750000"></div>
+   <div class="field"><label for="depositAmount">Nominal setoran baru (Rp)</label><input id="depositAmount" type="number" min="1" step="1000" placeholder="Contoh: 8000"></div>
+   <div class="field full"><button class="btn primary" id="depositBtn">＋ Tambahkan tabungan</button><button class="btn secondary" id="updateBtn">Simpan perubahan target</button><div class="hint">Setiap setoran ditambahkan ke saldo sebelumnya. Contoh: Rp50.000 + Rp8.000 = Rp58.000. Saldo disimpan di browser perangkat ini.</div></div>
+  </div>
+  <div class="feature-tools"><button class="btn secondary" id="soundBtn" type="button">♫ Suara: mati</button><button class="btn secondary" id="exportBtn" type="button">⇩ Cadangkan data</button><label class="btn secondary" style="display:inline-flex;align-items:center;cursor:pointer">⇧ Pulihkan data<input id="importFile" type="file" accept="application/json,.json" style="display:none"></label></div><div class="hint" style="margin-top:7px">Data tersimpan di browser perangkat ini. Cadangkan secara berkala agar tidak hilang saat data browser dihapus.</div>
+   <div style="margin-top:22px"><div class="progressrow"><span>PROGRES MISI</span><strong id="percent">0%</strong></div><div class="progressbar"><div class="progressfill" id="progressfill"></div></div><div class="progressrow"><span id="savedLabel">Rp0 terkumpul</span><span id="remainingLabel">Kurang Rp750.000</span></div></div>
+ </div>
+ <div>
+  <div class="panel" id="missions"><div class="panelhead"><div><h2>02 / Daily quests</h2><div class="sub">Misi kecil untuk menjaga ritme.</div></div><span style="color:var(--pink)">✦ XP</span></div>
+   <div class="missions" id="questList">
+    <button class="mission quest" data-quest="deposit" type="button" style="text-align:left;color:inherit;width:100%;cursor:pointer"><div class="mission-icon">💧</div><div style="flex:1"><b>Isi celengan hari ini</b><small>Setor minimal sekali hari ini.</small></div><span class="badge">+20 XP</span></button>
+    <button class="mission quest" data-quest="skip" type="button" style="text-align:left;color:inherit;width:100%;cursor:pointer"><div class="mission-icon">🌀</div><div style="flex:1"><b>Tahan satu pembelian impulsif</b><small>Tandai jika kamu berhasil menahan diri.</small></div><span class="badge">+30 XP</span></button>
+    <button class="mission quest" data-quest="review" type="button" style="text-align:left;color:inherit;width:100%;cursor:pointer"><div class="mission-icon">🌙</div><div style="flex:1"><b>Cek progres sebelum tidur</b><small>Buka dan tinjau progres targetmu.</small></div><span class="badge">+10 XP</span></button>
+   </div>
+   <div class="progressrow" style="margin-top:14px"><span>QUEST HARI INI</span><strong id="questCount">0/3 selesai</strong></div>
+   <div class="progressbar"><div class="progressfill" id="questProgress" style="width:0%"></div></div>
+   <div class="hint">Ketuk quest untuk menyelesaikannya. Quest “Isi celengan” selesai otomatis saat kamu menambahkan setoran.</div>
+  </div>
+  <div class="deposit"><h3>03 / Isi energi portal</h3><p>Transfer melalui aplikasi DANA. Pastikan nama penerima benar sebelum mengirim. Setelah transfer, perbarui jumlah terkumpul secara manual di target.</p><div class="numberbox"><span>💠</span><strong id="danaNumber">089630616298</strong><button class="btn secondary tiny" id="copyBtn">Salin</button></div><div class="deposit-actions"><button class="btn primary" id="openDana">Buka DANA ↗</button><button class="btn secondary" id="copyAndOpen">Salin & buka</button></div><div class="hint" style="margin-top:10px">Tombol membuka DANA jika tersedia. Nomor di atas hanya tujuan transfer yang kamu masukkan; cek ulang penerima di aplikasi DANA.</div></div>
+ </div>
+</section>
+<section class="extra-panels">
+ <div class="panel"><div class="panelhead"><div><h2>04 / Riwayat tabungan</h2><div class="sub">Catatan setoran dan perubahan target.</div></div><span class="eyebrow">LOG</span></div><div id="historyList" class="history-list"><div class="empty-state">Belum ada transaksi. Tambahkan setoran pertamamu.</div></div><div class="feature-tools"><button class="btn secondary" id="clearHistoryBtn" type="button">Hapus riwayat</button></div></div>
+ <div class="panel"><div class="panelhead"><div><h2>05 / Pencapaian</h2><div class="sub">Koleksi badge yang kamu buka.</div></div><span style="color:var(--pink)" id="badgeCount">0/6</span></div><div id="badgeList" class="badge-list"></div></div>
+</section>
+<div class="footer">VOID SAVE · Buat perjalanan menabung terasa seperti game.<br>Demo UI — bukan layanan keuangan dan tidak memverifikasi transaksi.</div>
+</div><div class="toast" id="toast">Tersimpan!</div>
+<script>
+const $=id=>document.getElementById(id);
+const rupiah=n=>'Rp'+Math.max(0,Number(n)||0).toLocaleString('id-ID');
+const todayKey=()=>new Date().toLocaleDateString('sv-SE');
+const STORE_KEY='voidsave_upgrade_v2';
+const OLD_KEY='voidsave';
+let chosenEmoji='🎧', uploadedData='', soundOn=false, audioCtx=null;
+let state={version:2,activeId:'default',targets:[],history:[],quests:{},questDate:todayKey(),xp:0,streak:0,lastActiveDate:'',badges:[]};
+let savedBalance=0;
+
+function uid(){return 't'+Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2200)}
+function activeTarget(){return state.targets.find(t=>t.id===state.activeId)||state.targets[0]}
+function syncActiveFromInputs(){
+ const t=activeTarget(); if(!t)return;
+ t.name=$('goalName').value.trim()||'Target impian';
+ t.goal=Math.max(1,Number($('goalAmount').value)||1);
+ t.saved=Math.max(0,Number(savedBalance)||0);
+ t.emoji=chosenEmoji; t.image=uploadedData;
+}
+function pushHistory(type,amount,description){
+ state.history.unshift({id:uid(),type,amount:Number(amount)||0,description,date:new Date().toISOString(),targetId:state.activeId,targetName:$('goalName').value.trim()||'Target impian',balance:savedBalance});
+ state.history=state.history.slice(0,150);
+}
+function persist(){
+ syncActiveFromInputs();
+ const payload={...state,targets:state.targets.map(t=>({...t})),savedAt:new Date().toISOString()};
+ try{localStorage.setItem(STORE_KEY,JSON.stringify(payload));}catch(e){toast('Penyimpanan penuh. Cadangkan data dan hapus gambar besar.')}
+}
+function playTone(freq=660,duration=.09){
+ if(!soundOn)return;
+ try{
+  const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return;
+  audioCtx=audioCtx||new Ctx();if(audioCtx.state==='suspended')audioCtx.resume();
+  const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();
+  osc.type='sine';osc.frequency.value=freq;gain.gain.setValueAtTime(.0001,audioCtx.currentTime);gain.gain.exponentialRampToValueAtTime(.07,audioCtx.currentTime+.015);gain.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+duration);
+  osc.connect(gain);gain.connect(audioCtx.destination);osc.start();osc.stop(audioCtx.currentTime+duration+.02);
+ }catch(e){}
+}
+function markActiveDay(){
+ const today=todayKey(), last=state.lastActiveDate;
+ if(last!==today){
+  if(last){const yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);state.streak=(last===yesterday.toLocaleDateString('sv-SE'))?state.streak+1:1}
+  else state.streak=1;
+  state.lastActiveDate=today;
+ }
+}
+function grantXP(amount,reason){
+ state.xp=Math.max(0,Number(state.xp)||0)+amount;
+ markActiveDay();
+}
+function questXP(){return (state.quests.deposit?20:0)+(state.quests.skip?30:0)+(state.quests.review?10:0)}
+function levelFromXP(xp){return 1+Math.floor(Math.max(0,xp)/100)}
+function renderPortal(pct){
+ const power=1+Math.min(1.2,pct/100);
+ document.documentElement.style.setProperty('--portal-power',power.toFixed(2));
+ document.documentElement.style.setProperty('--portal-brightness',(1+pct/140).toFixed(2));
+ document.documentElement.style.setProperty('--portal-glow',(0.03+pct/180).toFixed(2));
+ $('portalLevel').textContent='ENERGI '+pct+'%';
+ $('blackholeOrbit').style.transform='scale('+(1+pct/600).toFixed(3)+')';
+}
+function render(){
+ const name=$('goalName').value.trim()||'Target impian',goal=Math.max(1,Number($('goalAmount').value)||1),saved=Math.max(0,Number(savedBalance)||0),pct=Math.min(100,Math.round(saved/goal*100));
+ $('previewName').textContent=name;$('goalStat').textContent=rupiah(goal);$('totalStat').textContent=rupiah(saved);$('percent').textContent=pct+'%';$('progressfill').style.width=pct+'%';$('savedLabel').textContent=rupiah(saved)+' terkumpul';$('remainingLabel').textContent=saved>=goal?'🎉 Target tercapai!':'Kurang '+rupiah(goal-saved);$('portalLabel').textContent=name;
+ if(uploadedData){$('previewImg').src=uploadedData;$('previewImg').style.display='block';$('previewEmoji').style.display='none'}else{$('previewImg').style.display='none';$('previewEmoji').style.display='grid';$('previewEmoji').textContent=chosenEmoji}
+ renderPortal(pct);renderQuests();renderHistory();renderBadges();renderTargetSelect();
+}
+function renderTargetSelect(){
+ const sel=$('targetSelect'),old=sel.value;
+ sel.innerHTML='';
+ state.targets.forEach(t=>{const o=document.createElement('option');o.value=t.id;o.textContent=t.name+' · '+rupiah(t.saved);sel.appendChild(o)});
+ sel.value=state.activeId;
+}
+function renderQuests(){
+ const done=Object.values(state.quests).filter(Boolean).length;
+ document.querySelectorAll('.quest').forEach(btn=>{
+  const key=btn.dataset.quest,isDone=!!state.quests[key];btn.classList.toggle('done',isDone);
+  const badge=btn.querySelector('.badge');if(badge)badge.textContent=isDone?'SELESAI':({deposit:'+20 XP',skip:'+30 XP',review:'+10 XP'}[key]);
+ });
+ $('questCount').textContent=done+'/3 selesai';$('questProgress').style.width=(done/3*100)+'%';
+ const level=levelFromXP(state.xp),within=state.xp%100;
+ $('levelStat').textContent='Level '+level;$('xpStat').textContent=state.xp+' XP · 🔥 '+state.streak+' hari · '+within+'/100 ke level berikutnya';
+}
+const badgeDefs=[
+ {id:'first',icon:'🌱',name:'Langkah Pertama',desc:'Setoran pertama tercatat.',test:()=>state.history.some(h=>h.type==='deposit')},
+ {id:'50k',icon:'💠',name:'Kolektor 50K',desc:'Total tabungan minimal Rp50.000.',test:()=>state.targets.some(t=>t.saved>=50000)},
+ {id:'100k',icon:'💎',name:'Seratus Ribu',desc:'Total tabungan minimal Rp100.000.',test:()=>state.targets.some(t=>t.saved>=100000)},
+ {id:'goal',icon:'🪐',name:'Portal Terbuka',desc:'Selesaikan satu target tabungan.',test:()=>state.targets.some(t=>t.saved>=t.goal)},
+ {id:'streak3',icon:'🔥',name:'Api Konsisten',desc:'Streak mencapai 3 hari.',test:()=>state.streak>=3},
+ {id:'quests',icon:'⚡',name:'Penakluk Quest',desc:'Selesaikan 3 quest dalam sehari.',test:()=>Object.values(state.quests).filter(Boolean).length===3}
+];
+function renderBadges(){
+ const list=$('badgeList');list.innerHTML='';let unlocked=0;
+ badgeDefs.forEach(b=>{const yes=b.test();if(yes)unlocked++;const el=document.createElement('div');el.className='achievement '+(yes?'unlocked':'locked');el.innerHTML='<div class="achievement-icon">'+b.icon+'</div><div class="achievement-copy"><b></b><small></small></div><span class="achievement-state"></span>';el.querySelector('b').textContent=b.name;el.querySelector('small').textContent=b.desc;el.querySelector('.achievement-state').textContent=yes?'TERBUKA':'TERKUNCI';list.appendChild(el)});
+ $('badgeCount').textContent=unlocked+'/'+badgeDefs.length;
+}
+function renderHistory(){
+ const list=$('historyList');list.innerHTML='';
+ if(!state.history.length){list.innerHTML='<div class="empty-state">Belum ada transaksi. Tambahkan setoran pertamamu.</div>';return}
+ state.history.slice(0,12).forEach(h=>{
+  const el=document.createElement('div');el.className='history-item';
+  const isDeposit=h.type==='deposit';const date=new Date(h.date);
+  el.innerHTML='<div class="history-icon">'+(isDeposit?'💧':'🎯')+'</div><div class="history-copy"><b></b><small></small></div><div class="history-amount"></div>';
+  el.querySelector('.history-copy b').textContent=h.description||h.targetName||'Aktivitas';
+  el.querySelector('.history-copy small').textContent=(Number.isNaN(date.getTime())?'':date.toLocaleString('id-ID'))+' · '+(h.targetName||'Target');
+  el.querySelector('.history-amount').textContent=(isDeposit?'+':'')+rupiah(h.amount);
+  if(!isDeposit)el.querySelector('.history-amount').style.color='var(--muted)';
+  list.appendChild(el);
+ });
+}
+function updateQuestDate(){
+ const today=todayKey();if(state.questDate!==today){state.quests={};state.questDate=today;}
+}
+function activateTarget(id){
+ syncActiveFromInputs();state.activeId=id;const t=activeTarget();if(!t)return;
+ $('goalName').value=t.name;$('goalAmount').value=t.goal;savedBalance=t.saved;chosenEmoji=t.emoji||'🎧';uploadedData=t.image||'';
+ document.querySelectorAll('.goal').forEach(b=>b.classList.toggle('selected',b.dataset.name===t.name));
+ render();persist();
+}
+document.querySelectorAll('.goal').forEach(btn=>btn.addEventListener('click',()=>{
+ chosenEmoji=btn.dataset.emoji;uploadedData='';$('goalName').value=btn.dataset.name;$('goalAmount').value=btn.dataset.amount;
+ document.querySelectorAll('.goal').forEach(b=>b.classList.toggle('selected',b===btn));
+ syncActiveFromInputs();render();persist();playTone(600);
+}));
+$('imageUpload').addEventListener('change',e=>{const f=e.target.files&&e.target.files[0];if(!f)return;if(!f.type.startsWith('image/'))return toast('Pilih file gambar ya.');if(f.size>3*1024*1024)return toast('Pilih gambar maksimal 3 MB agar penyimpanan tidak penuh.');const reader=new FileReader();reader.onload=()=>{uploadedData=reader.result;render();persist();toast('Gambar target diperbarui.');};reader.readAsDataURL(f)});
+$('targetSelect').addEventListener('change',e=>activateTarget(e.target.value));
+$('newTargetBtn').addEventListener('click',()=>{
+ syncActiveFromInputs();
+ const t={id:uid(),name:'Target baru',goal:100000,saved:0,emoji:'✨',image:''};
+ state.targets.push(t);state.activeId=t.id;savedBalance=0;chosenEmoji='✨';uploadedData='';$('goalName').value=t.name;$('goalAmount').value=t.goal;
+ document.querySelectorAll('.goal').forEach(b=>b.classList.remove('selected'));render();persist();toast('Target baru dibuat.');playTone(740);
+});
+$('depositBtn').addEventListener('click',()=>{
+ const amount=Number($('depositAmount').value);if(!Number.isFinite(amount)||amount<=0)return toast('Masukkan nominal setoran yang valid.');
+ const before=savedBalance;savedBalance+=amount;state.quests.deposit=true;state.xp+=20;markActiveDay();
+ pushHistory('deposit',amount,'Setoran '+rupiah(amount));$('depositAmount').value='';syncActiveFromInputs();
+ checkNewBadges();render();persist();toast('Berhasil menambah '+rupiah(amount)+'!');playTone(880,.14);
+});
+$('updateBtn').addEventListener('click',()=>{
+ if(Number($('goalAmount').value)<=0)return toast('Target harus lebih dari Rp0.');
+ const t=activeTarget();const oldGoal=t.goal;syncActiveFromInputs();pushHistory('goal',Number($('goalAmount').value)-oldGoal,'Target diperbarui');
+ render();persist();toast('Target diperbarui!');playTone(520);
+});
+document.querySelectorAll('.quest').forEach(btn=>btn.addEventListener('click',()=>{
+ const key=btn.dataset.quest;if(key==='deposit'&&!state.quests.deposit)return toast('Selesaikan dengan menambah setoran tabungan.');
+ if(state.quests[key])return toast('Quest ini sudah selesai hari ini.');
+ state.quests[key]=true;const rewards={skip:30,review:10,deposit:0};grantXP(rewards[key]||0,key);checkNewBadges();render();persist();toast('Quest selesai! XP didapat 🎉');playTone(720);
+}));
+function checkNewBadges(){const now=badgeDefs.filter(b=>b.test()).map(b=>b.id);const newly=now.filter(id=>!state.badges.includes(id));if(newly.length){state.badges=[...new Set([...state.badges,...newly])];if(newly.length)playTone(990,.16)}}
+$('copyBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('danaNumber').textContent.trim());toast('Nomor DANA disalin!')}catch(e){const t=document.createElement('textarea');t.value=$('danaNumber').textContent.trim();document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();toast('Nomor DANA disalin!')}});
+function openDana(){window.location.href='dana://';setTimeout(()=>{if(!document.hidden)window.open('https://www.dana.id/','_blank','noopener')},900)}
+$('openDana').addEventListener('click',openDana);
+$('copyAndOpen').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('danaNumber').textContent.trim())}catch(e){}openDana();toast('Nomor DANA: '+$('danaNumber').textContent.trim())});
+$('soundBtn').addEventListener('click',()=>{soundOn=!soundOn;$('soundBtn').textContent='♫ Suara: '+(soundOn?'nyala':'mati');$('soundBtn').classList.toggle('active',soundOn);if(soundOn)playTone(700);toast(soundOn?'Efek suara aktif.':'Efek suara dimatikan.')});
+$('exportBtn').addEventListener('click',()=>{
+ syncActiveFromInputs();persist();const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='void-save-backup-'+todayKey()+'.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);toast('Cadangan data dibuat.');
+});
+$('importFile').addEventListener('change',e=>{
+ const f=e.target.files&&e.target.files[0];if(!f)return;
+ const reader=new FileReader();reader.onload=()=>{
+  try{
+   const d=JSON.parse(reader.result);if(!d||!Array.isArray(d.targets))throw new Error('format');
+   if(!confirm('Pulihkan data cadangan? Data VOID SAVE yang sekarang akan diganti.'))return;
+   state={...state,...d,version:2};if(!state.targets.length)throw new Error('targets');
+   state.activeId=state.targets.some(t=>t.id===state.activeId)?state.activeId:state.targets[0].id;
+   updateQuestDate();const t=activeTarget();$('goalName').value=t.name;$('goalAmount').value=t.goal;savedBalance=t.saved;chosenEmoji=t.emoji||'🎧';uploadedData=t.image||'';
+   render();persist();toast('Data berhasil dipulihkan.');
+  }catch(err){toast('File cadangan tidak valid.');}
+ };reader.readAsText(f);e.target.value='';
+});
+$('clearHistoryBtn').addEventListener('click',()=>{if(!confirm('Hapus semua riwayat transaksi? Saldo tidak berubah.'))return;state.history=[];persist();renderHistory();toast('Riwayat dihapus.')});
+
+function migrateData(){
+ let raw=null;try{raw=localStorage.getItem(STORE_KEY)}catch(e){}
+ if(raw){try{const d=JSON.parse(raw);state={...state,...d};if(!Array.isArray(state.targets))state.targets=[];}catch(e){}}
+ if(!state.targets.length){
+  let old=null;try{old=JSON.parse(localStorage.getItem(OLD_KEY)||'null')}catch(e){}
+  const target={id:'default',name:(old&&old.name)||$('goalName').value,goal:Number((old&&old.goal)||$('goalAmount').value)||750000,saved:Math.max(0,Number(old&&old.saved)||0),emoji:(old&&old.emoji)||'🎧',image:(old&&old.image)||''};
+  state.targets=[target];state.activeId='default';
+  if(old&&old.quests){state.quests=old.quests;state.questDate=old.questDate||todayKey()}
+ }else if(!state.targets.some(t=>t.id===state.activeId)){state.activeId=state.targets[0].id}
+ updateQuestDate();const t=activeTarget();$('goalName').value=t.name;$('goalAmount').value=t.goal;savedBalance=Math.max(0,Number(t.saved)||0);chosenEmoji=t.emoji||'🎧';uploadedData=t.image||'';
+ checkNewBadges();render();persist();
+}
+$('goalName').addEventListener('change',()=>{syncActiveFromInputs();render();persist()});
+$('goalAmount').addEventListener('change',()=>{syncActiveFromInputs();render();persist()});
+migrateData();
+</script>
+</body></html>
